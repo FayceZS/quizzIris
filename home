@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les métiers de la paie</title>
+</head>
+<body>
+    <h1>Quiz sur les métiers de la paie</h1>
+    <form id="quiz">
+
+        <h3>1. Quel est le rôle principal du gestionnaire de paie en entreprise ?</h3>
+        <input type="radio" name="q1" value="A"> A) Créer des contrats de travail<br>
+        <input type="radio" name="q1" value="B"> B) Superviser une équipe de gestionnaires de paie<br>
+        <input type="radio" name="q1" value="C"> C) Éditer les bulletins de paie des salariés<br>
+        <input type="radio" name="q1" value="D"> D) Organiser des réunions RH<br><br>
+
+        <h3>2. Quelles sont les trois phases principales du processus de paie ?</h3>
+        <input type="radio" name="q2" value="A"> A) Préparation, clôture, post-paie<br>
+        <input type="radio" name="q2" value="B"> B) Calcul, édition, révision<br>
+        <input type="radio" name="q2" value="C"> C) Pré-paie, contrôle, post-édition<br>
+        <input type="radio" name="q2" value="D"> D) Validation, impression, archivage<br><br>
+
+        <h3>3. Quelle mission n'appartient pas au gestionnaire de paie ?</h3>
+        <input type="radio" name="q3" value="A"> A) Calculer et saisir les éléments de paie<br>
+        <input type="radio" name="q3" value="B"> B) Répondre aux questions des salariés sur les bulletins de paie<br>
+        <input type="radio" name="q3" value="C"> C) Organiser des entretiens d’embauche<br>
+        <input type="radio" name="q3" value="D"> D) Gérer les obligations déclaratives<br><br>
+
+        <h3>4. Dans quelle situation une PME choisit-elle d’externaliser la paie ?</h3>
+        <input type="radio" name="q4" value="A"> A) Quand il y a trop de salariés<br>
+        <input type="radio" name="q4" value="B"> B) Quand l’entreprise n’a pas assez d'effectifs pour créer un poste dédié<br>
+        <input type="radio" name="q4" value="C"> C) Quand l'entreprise préfère sous-traiter l'administration RH<br>
+        <input type="radio" name="q4" value="D"> D) Lorsqu’il y a des audits fréquents<br><br>
+
+        <h3>5. Quel est le rôle du gestionnaire de paie externalisée ?</h3>
+        <input type="radio" name="q5" value="A"> A) Superviser l’équipe RH<br>
+        <input type="radio" name="q5" value="B"> B) Transmettre les éléments de paie au prestataire externe<br>
+        <input type="radio" name="q5" value="C"> C) Paramétrer les logiciels de paie<br>
+        <input type="radio" name="q5" value="D"> D) Réaliser des audits sociaux<br><br>
+
+        <!-- Ajoute les autres questions ici de la même manière -->
+
+        <h3>25. Quel rôle joue le responsable paie dans la relation avec les clients en cabinet ?</h3>
+        <input type="radio" name="q25" value="A"> A) Il ne gère que la paie interne<br>
+        <input type="radio" name="q25" value="B"> B) Il est en lien avec la direction du cabinet<br>
+        <input type="radio" name="q25" value="C"> C) Il ne participe pas aux missions clients<br>
+        <input type="radio" name="q25" value="D"> D) Il gère uniquement les absences<br><br>
+
+        <input type="submit" value="Voir mes résultats">
+    </form>
+
+    <script>
+        document.getElementById('quiz').onsubmit = function(event) {
+            event.preventDefault();
+            var score = 0;
+
+            // Clés de réponse
+            var answers = {
+                q1: 'C', q2: 'A', q3: 'C', q4: 'B', q5: 'B', // Ajoute les réponses correctes
+                q25: 'B'
+            };
+
+            // Vérification des réponses
+            for (var i = 1; i <= 25; i++) {
+                var question = 'q' + i;
+                var userAnswer = document.querySelector('input[name="'+question+'"]:checked');
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score++;
+                }
+            }
+
+            alert("Votre score est de " + score + " sur 25.");
+        };
+    </script>
+</body>
+</html>
